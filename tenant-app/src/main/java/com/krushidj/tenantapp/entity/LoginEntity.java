@@ -1,43 +1,49 @@
 package com.krushidj.tenantapp.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
+
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "user")
 public class LoginEntity {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name="user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long loginId;
 
-    @Column(name="first_name")
+    @Column(name = "first_name")
     private String fName;
 
-    @Column(name="last_name")
+    @Column(name = "last_name")
     private String lName;
 
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
 
-    @Column(name="phone")
+    @Column(name = "phone")
     private String phoneNumber;
 
-    @Column(name="role")
+    @Column(name = "role")
     private int role;
 
-    @Column(name="active")
+    @Column(name = "active")
     private boolean isActive;
 
-    @Column(name="password")
+    @Column(name = "password")
 
     private String password;
 
 
-    @Column(name="created_at")
+    @Column(name = "created_at")
     private Timestamp createdAt;
 
-    @Column(name="last_login")
+    @Column(name = "last_login")
     private Timestamp lastLoginAt;
 
     public LoginEntity() {
@@ -57,7 +63,7 @@ public class LoginEntity {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.role = role;
-        this.password=password;
+        this.password = password;
         this.isActive = isActive;
         this.createdAt = createdAt;
         this.lastLoginAt = lastLoginAt;
@@ -133,6 +139,7 @@ public class LoginEntity {
     public void setActive(boolean active) {
         isActive = active;
     }
+
     public String getPassword() {
         return password;
     }
