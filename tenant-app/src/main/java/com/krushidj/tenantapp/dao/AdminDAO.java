@@ -8,6 +8,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
+import java.util.List;
+
 public interface AdminDAO extends CrudRepository<LoginEntity,Long> {
 
 //    @Query(value = "INSERT INTO user(first_name,last_name,email,phone,role,active,password,created_at) " +
@@ -27,4 +29,9 @@ public interface AdminDAO extends CrudRepository<LoginEntity,Long> {
 //
 
     LoginEntity save(LoginEntity entity);
+
+    @Query(value = "SELECT u.user_id,u.first_name,u.phone u.created_at from user u where u.phone like :phoneQury%"
+           ,nativeQuery = true)
+    List<LoginEntity> findPhoneNumberByUser(@Param("phoneQury")String phoneQury);
+
 }
